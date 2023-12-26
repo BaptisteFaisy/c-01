@@ -6,7 +6,7 @@
 /*   By: bfaisy <bfaisy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 12:29:02 by bfaisy            #+#    #+#             */
-/*   Updated: 2023/12/24 16:11:59 by bfaisy           ###   ########.fr       */
+/*   Updated: 2023/12/26 14:23:50 by bfaisy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private :
 	Weapon &weapon;
 	std::string name;
 public :
-	HumanA(std::string name1, Weapon weapon1);
+	HumanA(std::string name1, Weapon &weapon1);
 	~HumanA();
 	void attack();
 

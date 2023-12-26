@@ -6,7 +6,7 @@
 /*   By: bfaisy <bfaisy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 12:28:57 by bfaisy            #+#    #+#             */
-/*   Updated: 2023/12/24 16:10:35 by bfaisy           ###   ########.fr       */
+/*   Updated: 2023/12/26 14:36:19 by bfaisy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public :
 	HumanB(std::string name1);
 	~HumanB();
 	
-	void setWeapon(Weapon weapon1);
+	void setWeapon(Weapon &weapon1);
 	void attack();
 
 };
