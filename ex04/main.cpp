@@ -6,7 +6,7 @@
 /*   By: bfaisy <bfaisy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 14:39:44 by bfaisy            #+#    #+#             */
-/*   Updated: 2023/12/26 18:09:26 by bfaisy           ###   ########.fr       */
+/*   Updated: 2023/12/26 20:16:38 by bfaisy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(int ac, char **av) {
     char c;
     std::string s1, s2;
 	int i = 0;
+	int para = 0;
 
     if (ac != 4) {
         std::cerr << "Utilisation : " << av[0] << " <nom_fichier> <sous_chaine_a_remplacer> <remplacement>" << std::endl;
@@ -39,12 +40,29 @@ int main(int ac, char **av) {
     s2 = av[3];
 
     while (fichier_entree.get(c)) {
-    	i = 0;
-        while (c == s1[i] && i < s1.length()) {
-            fichier_sortie << s2[i];
-            fichier_entree.get(c);
-            i++;
+        i = 0;
+        para = 0;
+        if (c == s1[i]) {
+			while (c == s1[i]){
+				if ((unsigned long)i == s1.length() - 1)
+                {
+					para = 1;
+                    break ;
+                }
+           		fichier_entree.get(c);
+            	i++;
+			}
+			if (para == 1)
+				fichier_sortie << s2;
+            else
+            {
+                fichier_entree.seekg(-i, std::ios::cur);
+                fichier_entree.get(c);
+                fichier_sortie << c;
+            }
         }
+        else
+            fichier_sortie << c;
     }
 
     fichier_entree.close();
